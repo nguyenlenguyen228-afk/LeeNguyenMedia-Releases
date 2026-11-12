@@ -1,21 +1,21 @@
 {
  "738059741": {
-  "n": 3,
+  "n": 4,
   "os": "win",
   "ten": "v1.1.0/LeeNguyenMedia-Windows.zip"
  },
  "738059743": {
-  "n": 4,
+  "n": 5,
   "os": "mac",
   "ten": "v1.1.0/LeeNguyenMedia-Mac.dmg"
  },
  "738181131": {
-  "n": 0,
+  "n": 2,
   "os": "mac",
   "ten": "v1.1.1/LeeNguyenMedia-Mac.dmg"
  },
  "738181132": {
-  "n": 0,
+  "n": 2,
   "os": "win",
   "ten": "v1.1.1/LeeNguyenMedia-Windows.zip"
  }
