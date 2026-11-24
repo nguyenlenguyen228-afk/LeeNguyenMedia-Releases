@@ -1,9 +1,14 @@
 <p align="center"><img src="logo.png" alt="LNK MEDIA" height="160"></p>
 
-# Lee Nguyễn Media – Bảng phát âm thanh cho Windows
+# Lee Nguyễn Media – Bảng phát âm thanh & Màn hình LED
 
-Phần mềm **miễn phí** phát nhạc nền, hiệu ứng, tiếng vỗ tay… chỉ bằng một cú bấm.
+Phát nhạc nền, hiệu ứng, tiếng vỗ tay… chỉ bằng một cú bấm, và điều khiển hình ảnh trên **màn hình LED** như một bàn trộn hình.
 Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việt.
+
+| | |
+|---|---|
+| **Bảng phát âm thanh, YouTube** | **Miễn phí** |
+| **Màn hình LED** (trộn hình, Map LED, viền, Chaser…) | **Có tính phí** – chưa mua vẫn dùng thử được (màn LED hiện chữ *"BẢN DÙNG THỬ"*) |
 
 ## Tải về
 
@@ -24,6 +29,8 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 
 ## Tính năng chính
 
+### Bảng phát âm thanh (miễn phí)
+
 - Lưới ô âm thanh: kéo thả file nhạc vào ô, bấm để phát / dừng, phím tắt cho từng ô
 - Kịch bản chương trình với nút **GO** cho người chạy show
 - EQ tham số (PEQ) từng bài, có sóng nhạc hiển thị trực tiếp
@@ -34,8 +41,22 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 - Mỗi ô chọn loa riêng, nghe trước bằng tai nghe
 - Màn hình MC: thời gian còn lại chữ to, đồng hồ phát biểu
 - Nút KHẨN CẤP cắt ngay mọi âm thanh
+- Phát YouTube lên loa / màn hình phụ
+
+### Màn hình LED (có tính phí – Windows)
+
+- Trộn hình như bàn trộn: màn Xem trước / Đang phát, cắt, chuyển mờ
+- Video (mp4, mov, avi, wmv…), ảnh, màu nền, bài YouTube, trình chiếu PDF / PowerPoint (dùng được bút trình chiếu)
+- **Map LED**: khai báo cabin, chia vùng, hình có sẵn (tròn, tim, lục giác, ngôi sao, hoa sen…), bút vẽ hình tự do, bo từng góc
+- **Viền Map**: liền nét, neon, khói, ma trận, kiếm ánh sáng – chia đoạn chạy đuổi
+- **Chaser**: nhấn giữ phím để chớp nháy các vùng làm điểm nhấn, nhiều màu, chỉnh tốc độ
+- **Chữ** nhiều kiểu (3D, neon, vàng kim…) và hiệu ứng động, nhiều khối chữ trong một khung
+- **Multi View** 10 lớp chồng lên nhau, chỉnh màu sắc (R / G / B) cho từng hiệu ứng
+
+**Mua bản quyền màn hình LED:** trong phần mềm bấm nút **Bản quyền** → **Chép mã máy** → gửi mã máy cho LNK MEDIA (☎ 0981.019.019).
+Mỗi giấy phép dùng cho một máy, **vĩnh viễn** cho đời bản đã mua (vd 1.3 dùng mãi mọi bản 1.3.x).
 
 ---
 
 © 2026 Lee Nguyễn Media · **LNK MEDIA** – Sound · Light · Stage · LED
-Phần mềm miễn phí; không được bán lại hoặc thay đổi tên, logo. Kho này chỉ chứa file cài đặt.
+Bảng phát âm thanh miễn phí; phần màn hình LED có tính phí. Không được bán lại, bẻ khóa hoặc thay đổi tên, logo. Kho này chỉ chứa file cài đặt.
