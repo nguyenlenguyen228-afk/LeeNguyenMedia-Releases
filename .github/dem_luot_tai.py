@@ -1,4 +1,4 @@
-"""Cộng lượt tải bản Windows (.zip) và Mac (.dmg) qua mọi phiên bản.
+"""Cộng lượt tải bản Windows (.zip + bộ cài Setup.exe) và Mac (.dmg) qua mọi phiên bản.
 Số đã thấy của từng file được lưu trong luot-tai/du-lieu.json và không bao giờ giảm,
 nên nâng cấp hay xoá bản cũ cũng không mất lượt tải."""
 import json, os, re, urllib.request
@@ -18,7 +18,7 @@ while True:
     for rel in releases:
         for a in rel.get("assets", []):
             name = a.get("name", "")
-            os_name = "win" if re.search(r"Windows\.zip$", name) else "mac" if re.search(r"Mac\.dmg$", name) else None
+            os_name = "win" if re.search(r"(Windows\.zip|win-Setup\.exe)$", name) else "mac" if re.search(r"Mac\.dmg$", name) else None
             if not os_name:
                 continue
             key = str(a["id"])
