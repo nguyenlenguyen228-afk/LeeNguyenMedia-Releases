@@ -35,7 +35,7 @@
   "ten": "v1.2.0/LeeNguyenMedia-win-Setup.exe"
  },
  "750562689": {
-  "n": 29,
+  "n": 30,
   "os": "mac",
   "ten": "v1.2.0/LeeNguyenMedia-Mac.dmg"
  },
@@ -80,7 +80,7 @@
   "ten": "v1.3.1/LeeNguyenMedia-Mac.dmg"
  },
  "790329855": {
-  "n": 0,
+  "n": 1,
   "os": "win",
   "ten": "v1.3.2/LeeNguyenMedia-win-Setup.exe"
  },
@@ -90,7 +90,7 @@
   "ten": "v1.3.2/LeeNguyenMedia-Mac.dmg"
  },
  "790334023": {
-  "n": 0,
+  "n": 1,
   "os": "win",
   "ten": "v1.3.2/LeeNguyenMedia-Windows.zip"
  }
