@@ -93,5 +93,10 @@
   "n": 1,
   "os": "win",
   "ten": "v1.3.2/LeeNguyenMedia-Windows.zip"
+ },
+ "790379889": {
+  "n": 0,
+  "os": "mac",
+  "ten": "v1.3.2/LeeNguyenMedia-Mac.dmg"
  }
 }
