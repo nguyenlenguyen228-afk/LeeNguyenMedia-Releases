@@ -21,6 +21,12 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
   <img src="https://img.shields.io/github/release-date/nguyenlenguyen228-afk/LeeNguyenMedia-Releases?label=Ng%C3%A0y%20ph%C3%A1t%20h%C3%A0nh&display_date=published_at" alt="Ngày phát hành">
 </p>
 
+<p align="center">
+  <a href="https://nguyenlenguyen228-afk.github.io/LeeNguyenMedia-Releases/huong-dan.html"><img src="https://img.shields.io/badge/%F0%9F%93%96%20H%C6%B0%E1%BB%9Bng%20d%E1%BA%ABn%20s%E1%BB%AD%20d%E1%BB%A5ng-xem%20online-b8860b?style=for-the-badge" alt="Hướng dẫn sử dụng" height="40"></a>
+</p>
+
+📖 **[Hướng dẫn sử dụng chi tiết (xem online)](https://nguyenlenguyen228-afk.github.io/LeeNguyenMedia-Releases/huong-dan.html)** — cài đặt, bảng phát âm thanh, màn hình LED / YouTube, Map LED và bản quyền, có hình minh hoạ.
+
 👉 Vào mục **[Releases](../../releases/latest)**, tải tệp **`LeeNguyenMedia-win-Setup.exe`** rồi bấm đúp để cài.
 
 - Chạy trên **Windows 10 / 11** (64-bit), không cần cài thêm gì.

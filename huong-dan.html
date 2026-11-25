@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hướng dẫn sử dụng chi tiết phần mềm Lee Nguyễn Media 1.3.3 – bảng phát âm thanh và màn hình LED, tiếng Việt.">
+<meta property="og:title" content="Hướng dẫn Lee Nguyễn Media">
+<meta property="og:description" content="Hướng dẫn sử dụng chi tiết: âm thanh, màn hình LED / YouTube, bản quyền.">
+<title>Hướng dẫn Lee Nguyễn Media</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: một cột đọc, mục lục dính trên cùng, các phần có dải tiêu đề vàng; nền sáng/tối theo máy người xem */
+:root{
+  --bg:#f6f4ee; --surface:#ffffff; --surface-2:#f0ece1; --fg:#1d1a14; --muted:#6a6454;
+  --line:#e2dccc; --gold:#b8860b; --gold-soft:#f6edd2; --green:#2f8f5b; --red:#c0392b; --blue:#1f6feb;
+  --key:#2a251a; --key-fg:#f6edd2;
+  --font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --maxw: 820px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#14130f; --surface:#1c1a15; --surface-2:#211e18; --fg:#f0ece1; --muted:#a39d8c;
+  --line:#2f2b22; --gold:#e3b84e; --gold-soft:#2a2414; --green:#4cc585; --red:#ef6a5c; --blue:#5a9bff;
+  --key:#efe6cf; --key-fg:#201c13; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#14130f; --surface:#1c1a15; --surface-2:#211e18; --fg:#f0ece1; --muted:#a39d8c;
+  --line:#2f2b22; --gold:#e3b84e; --gold-soft:#2a2414; --green:#4cc585; --red:#ef6a5c; --blue:#5a9bff;
+  --key:#efe6cf; --key-fg:#201c13; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--font); line-height:1.65; font-size:16.5px}
+.wrap{max-width:var(--maxw); margin:0 auto; padding-left:max(18px,env(safe-area-inset-left,0px)); padding-right:max(18px,env(safe-area-inset-right,0px))}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,#201c13,#2c2514 60%,#3a2f17); color:#f6edd2;
+  margin-top:calc(-1 * env(safe-area-inset-top,0px)); padding-top:calc(env(safe-area-inset-top,0px) + 2.6rem); padding-bottom:2.4rem;
+  border-bottom:3px solid var(--gold)}
+.hero .wrap{padding-block:0}
+.brand{display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.12em; font-size:.82rem; color:var(--gold); text-transform:uppercase}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(184,134,11,.2)}
+.hero h1{font-size:clamp(1.9rem,6vw,2.9rem); line-height:1.1; margin:.5rem 0 .4rem; text-wrap:balance; font-weight:800}
+.hero p{color:#d8cfb4; margin:.2rem 0; max-width:60ch}
+.ver{display:inline-block; margin-top:1rem; background:rgba(184,134,11,.16); border:1px solid rgba(227,184,78,.45);
+  color:#f0e2bc; padding:.3rem .8rem; border-radius:999px; font-size:.82rem; font-weight:600}
+
+/* Mục lục dính */
+nav.toc{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--surface);
+  border-bottom:1px solid var(--line)}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--surface)}
+nav.toc .wrap{padding-block:.55rem; display:flex; gap:.4rem; overflow-x:auto; scrollbar-width:thin}
+nav.toc a{white-space:nowrap; text-decoration:none; color:var(--muted); font-weight:600; font-size:.86rem;
+  padding:.35rem .7rem; border-radius:999px}
+nav.toc a:hover{color:var(--fg); background:var(--surface-2)}
+
+main .wrap{padding-block:0}
+section{padding:2.6rem 0 .6rem; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.eyebrow{display:flex; align-items:center; gap:.6rem; color:var(--gold); font-weight:700; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase}
+.eyebrow .num{display:inline-grid; place-items:center; width:1.7rem;height:1.7rem; border-radius:7px; background:var(--gold-soft); color:var(--gold); font-size:.95rem}
+h2{font-size:clamp(1.4rem,4vw,1.9rem); margin:.5rem 0 .3rem; text-wrap:balance; font-weight:800; line-height:1.15}
+h3{font-size:1.15rem; margin:1.8rem 0 .4rem; font-weight:700; color:var(--fg)}
+h3 .tag{font-size:.7rem; font-weight:700; color:var(--gold); background:var(--gold-soft); padding:.15rem .5rem; border-radius:6px; margin-left:.5rem; vertical-align:middle; letter-spacing:.04em}
+p{margin:.6rem 0}
+.lead{font-size:1.05rem; color:var(--muted); max-width:62ch}
+ul,ol{margin:.6rem 0; padding-left:1.3rem}
+li{margin:.35rem 0}
+b,strong{font-weight:700}
+a{color:var(--gold)}
+code,kbd{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace; font-size:.9em}
+kbd{background:var(--key); color:var(--key-fg); border-radius:6px; padding:.12rem .5rem; font-weight:600; white-space:nowrap; box-shadow:0 1px 0 rgba(0,0,0,.25)}
+
+/* các khối */
+.steps{list-style:none; padding:0; margin:1rem 0; counter-reset:st}
+.steps>li{counter-increment:st; position:relative; padding:.2rem 0 .2rem 2.6rem; margin:.5rem 0}
+.steps>li::before{content:counter(st); position:absolute; left:0; top:.1rem; width:1.8rem;height:1.8rem;
+  border-radius:50%; background:var(--gold); color:#fff; font-weight:700; display:grid; place-items:center; font-size:.9rem}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:1.1rem 1.2rem; margin:1rem 0}
+.card h4{margin:.1rem 0 .4rem; font-size:1rem; font-weight:700}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:.9rem; margin:1rem 0}
+.feat{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1rem; min-width:0}
+.feat .ic{font-size:1.4rem; line-height:1}
+.feat h4{margin:.5rem 0 .25rem; font-size:1rem; font-weight:700}
+.feat p{margin:.2rem 0; color:var(--muted); font-size:.95rem}
+.note{border-left:4px solid var(--blue); background:color-mix(in srgb, var(--blue) 8%, var(--surface)); padding:.8rem 1rem; border-radius:0 10px 10px 0; margin:1rem 0; font-size:.97rem}
+.tip{border-left-color:var(--green); background:color-mix(in srgb, var(--green) 10%, var(--surface))}
+.warn{border-left-color:var(--red); background:color-mix(in srgb, var(--red) 9%, var(--surface))}
+.note b{color:var(--fg)}
+.price{display:grid; grid-template-columns:1fr auto; gap:.3rem 1rem; align-items:center; margin:1rem 0; border:1px solid var(--line); border-radius:12px; overflow:hidden}
+.price div{padding:.75rem 1rem; min-width:0}
+.price .h{background:var(--surface-2); font-weight:600}
+.price .free{color:var(--green); font-weight:700; text-align:right; white-space:nowrap}
+.price .paid{color:var(--gold); font-weight:700; text-align:right; white-space:nowrap}
+.divline{border-bottom:1px solid var(--line)}
+figure.fig{margin:1.5rem 0; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--surface)}
+figure.fig svg{display:block; width:100%; height:auto}
+figure.fig figcaption{padding:.65rem 1rem; color:var(--muted); font-size:.88rem; border-top:1px solid var(--line); background:var(--surface-2)}
+figure.fig figcaption b{color:var(--fg)}
+.svgmono{font-family:"Be Vietnam Pro",sans-serif}
+footer{padding:2.4rem 0 3rem; text-align:center; color:var(--muted); font-size:.92rem}
+footer .big{color:var(--gold); font-weight:800; font-size:1.3rem; letter-spacing:.02em}
+.contact{display:inline-block; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:.8rem 1.4rem; margin-top:.8rem; user-select:all}
+.contact b{color:var(--fg)}
+.anchor{scroll-margin-top:4.5rem}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> LNK Media · Sound · Light · Stage · LED</div>
+    <h1>Hướng dẫn sử dụng Lee Nguyễn Media</h1>
+    <p>Bảng phát âm thanh và điều khiển màn hình LED cho quán, sự kiện, sân khấu và livestream. Giao diện tiếng Việt, một cú bấm là phát.</p>
+    <span class="ver">Phiên bản 1.3.3 · Windows &amp; MacBook</span>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#caidat">Cài đặt</a>
+    <a href="#amthanh">Bảng phát nhạc</a>
+    <a href="#nangcao">Nhạc nâng cao</a>
+    <a href="#led">Màn hình LED</a>
+    <a href="#map">Chỉnh Map LED</a>
+    <a href="#vien-chaser">Viền &amp; Chaser</a>
+    <a href="#banquyen">Bản quyền</a>
+    <a href="#capnhat">Cập nhật</a>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+<section id="caidat" class="anchor">
+  <div class="eyebrow"><span class="num">1</span> Cài đặt</div>
+  <h2>Tải và cài phần mềm</h2>
+  <p class="lead">Phần mềm chạy trên <b>Windows 10 / 11</b> và <b>MacBook</b> (chip Apple, macOS 12 trở lên). Không cần cài thêm gì.</p>
+
+  <h3>Trên Windows</h3>
+  <ol class="steps">
+    <li>Vào trang tải về, tải tệp <b>LeeNguyenMedia-Setup.exe</b> (hoặc gói <b>Windows.zip</b> có kèm nhạc mẫu).</li>
+    <li>Bấm đúp vào tệp để cài. Nếu Windows hiện khung xanh <i>“Windows protected your PC”</i>, bấm <b>More info</b> rồi <b>Run anyway</b>.</li>
+    <li>Cài xong phần mềm tự mở. Lần sau có bản mới, phần mềm sẽ tự hỏi cập nhật.</li>
+  </ol>
+
+  <h3>Trên MacBook</h3>
+  <ol class="steps">
+    <li>Tải tệp <b>LeeNguyenMedia-Mac.dmg</b>, bấm đúp để mở.</li>
+    <li>Kéo biểu tượng <b>Lee Nguyễn Media</b> thả vào thư mục <b>Applications</b>.</li>
+    <li>Lần đầu mở, nếu máy chặn: vào <b>Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật</b>, kéo xuống bấm <b>“Vẫn mở”</b>.</li>
+  </ol>
+
+  <div class="note tip"><b>Nhạc mẫu:</b> trong gói tải có sẵn thư mục <b>“Nhạc mẫu”</b>. Mở phần mềm rồi kéo cả thư mục đó thả vào lưới ô là có ngay vài bài để thử.</div>
+</section>
+
+<section id="amthanh" class="anchor">
+  <div class="eyebrow"><span class="num">2</span> Bảng phát âm thanh</div>
+  <h2>Phát nhạc, hiệu ứng bằng một cú bấm</h2>
+  <p class="lead">Màn hình chính là một lưới các ô. Mỗi ô là một bài nhạc, một tiếng vỗ tay, một hiệu ứng… Bấm vào ô là phát, bấm lại là dừng.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 760 392" xmlns="http://www.w3.org/2000/svg" class="svgmono" role="img" aria-label="Minh hoạ bảng phát âm thanh với lưới các ô và âm lượng tổng">
+      <rect x="8" y="8" width="744" height="376" rx="16" fill="var(--surface-2)" stroke="var(--line)"/>
+      <path d="M8 56 V24 a16 16 0 0 1 16 -16 H736 a16 16 0 0 1 16 16 V56 Z" fill="var(--surface)"/>
+      <line x1="8" y1="56" x2="752" y2="56" stroke="var(--line)"/>
+      <circle cx="34" cy="32" r="6" fill="#e0564b"/><circle cx="54" cy="32" r="6" fill="#e5b84e"/><circle cx="74" cy="32" r="6" fill="#4cc585"/>
+      <text x="102" y="37" fill="var(--gold)" font-weight="700" font-size="15">Lee Nguyễn Media</text>
+      <text x="548" y="37" fill="var(--muted)" font-size="12.5">Âm lượng tổng</text>
+      <line x1="646" y1="32" x2="730" y2="32" stroke="var(--line)" stroke-width="4" stroke-linecap="round"/>
+      <line x1="646" y1="32" x2="706" y2="32" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="706" cy="32" r="7" fill="var(--gold)"/>
+      <!-- Hàng ô 1 -->
+      <g>
+        <rect x="28" y="80" width="168" height="100" rx="12" fill="var(--gold-soft)" stroke="var(--line)"/>
+        <path d="M46 108 l18 10 -18 10 Z" fill="var(--gold)"/>
+        <text x="46" y="158" fill="var(--fg)" font-size="14" font-weight="600">Intro</text>
+      </g>
+      <g>
+        <rect x="204" y="80" width="168" height="100" rx="12" fill="var(--surface)" stroke="var(--gold)" stroke-width="2.5"/>
+        <path d="M222 108 h6 v-16 M232 108 v-26 M242 108 v-10 M252 108 v-20 M262 108 v-6" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <text x="222" y="150" fill="var(--fg)" font-size="14" font-weight="700">Nhạc nền</text>
+        <text x="222" y="167" fill="var(--muted)" font-size="11">▶ đang phát</text>
+        <rect x="204" y="172" width="168" height="8" rx="4" fill="var(--line)"/>
+        <rect x="204" y="172" width="104" height="8" rx="4" fill="var(--gold)"/>
+      </g>
+      <g>
+        <rect x="380" y="80" width="168" height="100" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+        <path d="M398 108 l18 10 -18 10 Z" fill="var(--muted)"/>
+        <text x="398" y="158" fill="var(--fg)" font-size="14" font-weight="600">Vỗ tay</text>
+      </g>
+      <g>
+        <rect x="556" y="80" width="168" height="100" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+        <path d="M574 108 l18 10 -18 10 Z" fill="var(--muted)"/>
+        <text x="574" y="158" fill="var(--fg)" font-size="14" font-weight="600">Tiếng MC</text>
+      </g>
+      <!-- Hàng ô 2 -->
+      <g>
+        <rect x="28" y="192" width="168" height="100" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+        <path d="M46 220 l18 10 -18 10 Z" fill="var(--muted)"/>
+        <text x="46" y="270" fill="var(--fg)" font-size="14" font-weight="600">Hiệu ứng</text>
+      </g>
+      <g>
+        <rect x="204" y="192" width="168" height="100" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+        <path d="M222 220 l18 10 -18 10 Z" fill="var(--muted)"/>
+        <text x="222" y="270" fill="var(--fg)" font-size="14" font-weight="600">Chuông</text>
+      </g>
+      <g>
+        <rect x="380" y="192" width="168" height="100" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+        <path d="M398 220 l18 10 -18 10 Z" fill="var(--muted)"/>
+        <text x="398" y="262" fill="var(--fg)" font-size="14" font-weight="600">Bài hát 1</text>
+        <text x="398" y="280" fill="var(--muted)" font-size="11">🎹 EQ · phím F3</text>
+      </g>
+      <g>
+        <rect x="556" y="192" width="168" height="100" rx="12" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="6 6"/>
+        <text x="640" y="238" fill="var(--muted)" font-size="20" text-anchor="middle">＋</text>
+        <text x="640" y="262" fill="var(--muted)" font-size="12" text-anchor="middle">Kéo nhạc</text>
+        <text x="640" y="278" fill="var(--muted)" font-size="12" text-anchor="middle">thả vào đây</text>
+      </g>
+      <!-- Thanh trạng thái + sóng nhạc -->
+      <rect x="28" y="308" width="696" height="56" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+      <path d="M48 336 v-8 M58 336 v-18 M68 336 v-24 M78 336 v-12 M88 336 v-20 M98 336 v-28 M108 336 v-14 M118 336 v-22 M128 336 v-10 M138 336 v-18 M148 336 v-26 M158 336 v-12 M168 336 v-20 M178 336 v-8 M188 336 v-16 M198 336 v-24 M208 336 v-14" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round" transform="translate(0,8)"/>
+      <text x="236" y="332" fill="var(--fg)" font-size="13" font-weight="600">Đang phát: Nhạc nền</text>
+      <text x="236" y="350" fill="var(--muted)" font-size="12">02:14 / 04:30</text>
+      <text x="704" y="332" fill="#e0564b" font-size="13" font-weight="700" text-anchor="end">■ DỪNG TẤT CẢ</text>
+      <text x="704" y="350" fill="var(--muted)" font-size="11" text-anchor="end">Esc</text>
+    </svg>
+    <figcaption><b>Bảng phát âm thanh.</b> Mỗi ô là một bài / hiệu ứng; ô đang phát sáng lên và chạy thanh thời gian. Góc trên là âm lượng tổng, kéo ô để sắp xếp.</figcaption>
+  </figure>
+
+  <ol class="steps">
+    <li><b>Đưa nhạc vào ô:</b> kéo tệp nhạc từ máy thả thẳng vào một ô trống. Kéo nhiều bài cùng lúc cũng được.</li>
+    <li><b>Phát / dừng:</b> bấm vào ô. Ô đang phát sẽ sáng lên và chạy thanh thời gian.</li>
+    <li><b>Đổi cách sắp xếp:</b> kéo ô để đổi chỗ. Chuột phải vào ô để <b>cài đặt, cắt nhạc, chỉnh EQ, đổi màu, chọn số lần phát…</b></li>
+    <li><b>Lưu lại:</b> bấm <b>Lưu</b> (hoặc <kbd>Ctrl</kbd>+<kbd>S</kbd>) để lưu cả bộ thành một tệp, lần sau mở lại dùng tiếp.</li>
+  </ol>
+
+  <h3>Các nút quan trọng trên cùng</h3>
+  <div class="grid">
+    <div class="feat"><div class="ic">🔊</div><h4>Âm lượng tổng</h4><p>Chỉnh to nhỏ cho toàn bộ: nhạc, video trên LED và cả YouTube.</p></div>
+    <div class="feat"><div class="ic">🔈</div><h4>Loa chính / Tai nghe</h4><p>Chọn loa phát ra, và tai nghe để nghe trước mà khán giả không nghe.</p></div>
+    <div class="feat"><div class="ic">⏹️</div><h4>Dừng tất cả</h4><p>Dừng êm mọi âm thanh đang phát. Phím tắt: <kbd>Esc</kbd>.</p></div>
+    <div class="feat"><div class="ic">⚠️</div><h4>KHẨN CẤP</h4><p>Cắt ngay lập tức mọi âm thanh. Phím tắt: <kbd>Shift</kbd>+<kbd>Esc</kbd>.</p></div>
+  </div>
+</section>
+
+<section id="nangcao" class="anchor">
+  <div class="eyebrow"><span class="num">3</span> Nhạc nâng cao</div>
+  <h2>Những tính năng cho người chạy chương trình</h2>
+
+  <div class="grid">
+    <div class="feat"><div class="ic">⌨️</div><h4>Phím tắt từng ô</h4><p>Gán một phím cho mỗi ô để bấm phát nhanh, kể cả khi đang mở phần mềm khác (bật “Phím tắt cả khi dùng app khác”).</p></div>
+    <div class="feat"><div class="ic">✂️</div><h4>Cắt bài &amp; chuyển mượt</h4><p>Cắt ngắn bài, làm nhỏ dần đầu/cuối (fade), chuyển bài êm (crossfade).</p></div>
+    <div class="feat"><div class="ic">🎚️</div><h4>EQ từng bài</h4><p>Chỉnh âm sắc (bass, treble…) riêng cho mỗi bài, có sóng nhạc hiển thị trực tiếp.</p></div>
+    <div class="feat"><div class="ic">🎙️</div><h4>Nhạc nền tự nhỏ</h4><p>Khi phát tiếng MC hay hiệu ứng, nhạc nền tự động nhỏ lại rồi to lại (ducking).</p></div>
+    <div class="feat"><div class="ic">📋</div><h4>Danh sách phát</h4><p>Gộp nhiều bài thành một ô chạy lần lượt, phát cả bộ, lặp lại số lần tùy ý.</p></div>
+    <div class="feat"><div class="ic">▶️</div><h4>Kịch bản (GO)</h4><p>Dựng sẵn thứ tự chương trình, người chạy show chỉ cần bấm nút <b>GO</b> lần lượt.</p></div>
+    <div class="feat"><div class="ic">⏱️</div><h4>Màn hình MC</h4><p>Hiện thời gian còn lại bằng chữ to và đồng hồ phát biểu cho người dẫn.</p></div>
+    <div class="feat"><div class="ic">🎧</div><h4>Nghe trước bằng tai nghe</h4><p>Nghe thử một bài bằng tai nghe trong khi loa chính vẫn đang phát bài khác.</p></div>
+  </div>
+</section>
+
+<section id="led" class="anchor">
+  <div class="eyebrow"><span class="num">4</span> Màn hình LED</div>
+  <h2>Màn làm việc LED / YouTube</h2>
+  <p class="lead">Trộn video, ảnh, màu nền, bài YouTube, chữ, trình chiếu PDF / PowerPoint rồi đưa lên màn hình LED như một bàn trộn hình. Bấm nút <b>“LED / YouTube”</b> (hàng nút phía trên) để mở.</p>
+
+  <div class="card">
+    <h4>Hai màn hình làm việc</h4>
+    <p><b>Xem trước</b> (bên trái): nơi bạn chuẩn bị, chọn hình, chỉnh vị trí — khán giả chưa thấy.<br>
+    <b>Đang phát</b> (bên phải): đúng những gì đang chiếu ra màn LED thật.</p>
+    <p>Chuẩn bị ở Xem trước xong thì đưa lên Đang phát bằng: <b>CẮT</b> (chuyển ngay, phím <kbd>Space</kbd>) hoặc <b>CHUYỂN MỜ</b> (mờ dần sang, phím <kbd>Enter</kbd>).</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 760 344" xmlns="http://www.w3.org/2000/svg" class="svgmono" role="img" aria-label="Hai màn Xem trước và Đang phát của màn LED">
+      <!-- Nhãn -->
+      <text x="30" y="28" fill="var(--muted)" font-size="13" font-weight="700" letter-spacing="1">XEM TRƯỚC</text>
+      <text x="400" y="28" fill="var(--gold)" font-size="13" font-weight="700" letter-spacing="1">ĐANG PHÁT</text>
+      <circle cx="516" cy="23" r="5" fill="#e0564b"/><text x="528" y="28" fill="#e0564b" font-size="12" font-weight="700">LIVE</text>
+      <!-- Màn Xem trước -->
+      <rect x="30" y="40" width="330" height="186" rx="10" fill="#141020" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="7 6"/>
+      <rect x="54" y="150" width="282" height="52" rx="6" fill="#2a2140"/>
+      <text x="195" y="120" fill="#8f86b5" font-size="20" font-weight="800" text-anchor="middle">CẢNH 2 · chờ</text>
+      <text x="195" y="182" fill="#d9d0f5" font-size="16" font-weight="700" text-anchor="middle">Lời cảm ơn</text>
+      <!-- Màn Đang phát -->
+      <rect x="400" y="40" width="330" height="186" rx="10" fill="#140e08" stroke="var(--gold)" stroke-width="2.5"/>
+      <rect x="424" y="150" width="282" height="52" rx="6" fill="#3a2d12"/>
+      <text x="565" y="120" fill="var(--gold)" font-size="22" font-weight="800" text-anchor="middle">LED SHOW</text>
+      <text x="565" y="182" fill="#f3e6c2" font-size="16" font-weight="700" text-anchor="middle">Chào mừng quý khách</text>
+      <!-- Nút chuyển -->
+      <rect x="196" y="262" width="168" height="52" rx="26" fill="var(--gold)"/>
+      <text x="280" y="288" fill="#1d1a10" font-size="15" font-weight="800" text-anchor="middle">CẮT</text>
+      <text x="280" y="304" fill="#4a3c18" font-size="11" text-anchor="middle">phím Space</text>
+      <rect x="396" y="262" width="168" height="52" rx="26" fill="none" stroke="var(--gold)" stroke-width="2"/>
+      <text x="480" y="288" fill="var(--gold)" font-size="15" font-weight="800" text-anchor="middle">CHUYỂN MỜ</text>
+      <text x="480" y="304" fill="var(--muted)" font-size="11" text-anchor="middle">phím Enter</text>
+      <!-- mũi tên -->
+      <path d="M366 133 h28 m-10 -7 l10 7 -10 7" stroke="var(--gold)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <figcaption><b>Màn LED / YouTube.</b> Chuẩn bị cảnh ở <b>Xem trước</b> (viền nét đứt), rồi bấm <b>CẮT</b> hoặc <b>CHUYỂN MỜ</b> để đưa sang <b>Đang phát</b> — chính là hình đang ra màn LED.</figcaption>
+  </figure>
+
+  <h3>Thêm nội dung vào danh sách (LAYER)</h3>
+  <ul>
+    <li><b>Video / ảnh / PDF / PowerPoint:</b> bấm <b>“Thêm video / ảnh / PDF / PPT”</b> hoặc kéo tệp thả vào danh sách. Video lạ (avi, wmv…) phần mềm tự chuyển sang chạy được; PDF và PowerPoint đọc thành từng trang.</li>
+    <li><b>Màu nền:</b> bấm <b>“Màu nền”</b> để thêm một ô màu.</li>
+    <li><b>Chữ:</b> bấm <b>“Chữ”</b> — gõ nội dung, chọn kiểu (3D, neon, vàng kim…), hiệu ứng chạy, nhiều khối chữ trong một khung, kéo thả đặt chỗ.</li>
+    <li><b>YouTube:</b> gõ tên bài ở ô YouTube bên phải, bấm <b>Tìm</b>, rồi đưa bài lên.</li>
+  </ul>
+
+  <div class="note"><b>Trình chiếu PowerPoint / PDF:</b> sau khi thêm, đưa lên LED rồi chuyển trang bằng nút <b>Trang trước / Trang sau</b>, phím <kbd>Page Up</kbd> / <kbd>Page Down</kbd>, hoặc <b>bút trình chiếu</b> (dùng được cả khi đang mở phần mềm khác).</div>
+
+  <h3>Multi View – xếp 10 lớp chồng nhau</h3>
+  <p>Mỗi hiệu ứng có thể xếp tối đa 10 lớp (video, chữ, YouTube…) chồng lên nhau, mỗi lớp ở một vùng và vị trí riêng. Mở bằng bánh răng của hiệu ứng → mục <b>Multi View</b>.</p>
+
+  <h3>Đưa lên màn hình LED thật</h3>
+  <ol class="steps">
+    <li>Cắm màn LED làm <b>màn hình thứ 2</b>, đặt Windows ở chế độ <b>“Mở rộng”</b> (<kbd>Windows</kbd>+<kbd>P</kbd> → Extend).</li>
+    <li>Trong phần mềm, chọn đúng <b>màn hình LED</b> ở ô chọn màn hình.</li>
+    <li>Bấm <b>“Lên LED”</b>. Hình ở màn Đang phát sẽ chiếu ra màn LED.</li>
+  </ol>
+</section>
+
+<section id="map" class="anchor">
+  <div class="eyebrow"><span class="num">5</span> Chỉnh Map LED</div>
+  <h2>Khai báo và chia màn hình LED</h2>
+  <p class="lead">Bấm nút <b>“Chỉnh Map”</b> để khai báo kích thước màn LED thật và chia thành các vùng (cánh gà, màn giữa, hình trái tim…). Hình sẽ chiếu đúng vào từng vùng.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 760 356" xmlns="http://www.w3.org/2000/svg" class="svgmono" role="img" aria-label="Màn hình Chỉnh Map LED chia vùng cánh và màn giữa">
+      <text x="40" y="30" fill="var(--muted)" font-size="12.5">ĐẦU VÀO — kích thước LED:</text>
+      <text x="214" y="30" fill="var(--gold)" font-size="13" font-weight="700">1024 × 512 điểm ảnh</text>
+      <!-- Màn LED -->
+      <rect x="40" y="48" width="680" height="240" rx="6" fill="#120f1a" stroke="var(--gold)" stroke-width="2"/>
+      <!-- lưới cabin -->
+      <g stroke="#38324a" stroke-width="1" stroke-dasharray="4 5">
+        <line x1="125" y1="48" x2="125" y2="288"/><line x1="210" y1="48" x2="210" y2="288"/><line x1="295" y1="48" x2="295" y2="288"/><line x1="380" y1="48" x2="380" y2="288"/><line x1="465" y1="48" x2="465" y2="288"/><line x1="550" y1="48" x2="550" y2="288"/><line x1="635" y1="48" x2="635" y2="288"/>
+        <line x1="40" y1="108" x2="720" y2="108"/><line x1="40" y1="168" x2="720" y2="168"/><line x1="40" y1="228" x2="720" y2="228"/>
+      </g>
+      <!-- Vùng cánh trái -->
+      <rect x="52" y="60" width="146" height="216" rx="6" fill="rgba(227,184,78,.10)" stroke="var(--gold)" stroke-width="2"/>
+      <text x="125" y="172" fill="var(--gold)" font-size="14" font-weight="700" text-anchor="middle">Cánh trái</text>
+      <!-- Vùng cánh phải -->
+      <rect x="562" y="60" width="146" height="216" rx="6" fill="rgba(227,184,78,.10)" stroke="var(--gold)" stroke-width="2"/>
+      <text x="635" y="172" fill="var(--gold)" font-size="14" font-weight="700" text-anchor="middle">Cánh phải</text>
+      <!-- Vùng giữa -->
+      <rect x="212" y="60" width="336" height="216" rx="6" fill="rgba(90,155,255,.12)" stroke="#5a9bff" stroke-width="2"/>
+      <text x="380" y="80" fill="#9cc0ff" font-size="13" font-weight="700" text-anchor="middle">Màn giữa</text>
+      <!-- Trái tim -->
+      <path d="M380 210 C 352 184 330 168 330 146 C 330 132 342 124 354 124 C 366 124 376 132 380 142 C 384 132 394 124 406 124 C 418 124 430 132 430 146 C 430 168 408 184 380 210 Z" fill="#e0564b" opacity="0.9"/>
+      <!-- Chú thích đầu ra -->
+      <rect x="40" y="304" width="400" height="40" rx="8" fill="var(--gold-soft)" stroke="var(--gold)"/>
+      <text x="58" y="322" fill="var(--gold)" font-size="12.5" font-weight="700">ĐẦU RA: Lấp đầy màn hình (mặc định)</text>
+      <text x="58" y="337" fill="var(--muted)" font-size="11">kéo giãn phủ kín màn LED thật — không còn viền đen</text>
+      <rect x="452" y="304" width="268" height="40" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+      <text x="470" y="322" fill="var(--fg)" font-size="12" font-weight="600">Hình có sẵn · Bút vẽ · Bo góc</text>
+      <text x="470" y="337" fill="var(--muted)" font-size="11">tròn, tim, sao, hoa sen… hoặc vẽ tự do</text>
+    </svg>
+    <figcaption><b>Chỉnh Map LED.</b> Khai báo kích thước màn, chia vùng (cánh — giữa), thêm hình có sẵn như trái tim. Nền kẻ nét đứt là lưới cabin để canh. Nhớ để <b>đầu ra = Lấp đầy màn hình</b> cho khỏi viền đen.</figcaption>
+  </figure>
+
+  <h3>Bước 1 — Khai báo đầu vào (kích thước LED)</h3>
+  <ul>
+    <li>Nhập <b>số điểm ảnh</b> của cả màn LED (ví dụ 1024 × 512), hoặc khai báo theo <b>cabin</b>: số cabin hàng ngang × hàng dọc, và số điểm ảnh mỗi cabin — phần mềm tự tính kích thước tổng và vẽ lưới cabin để bạn canh.</li>
+  </ul>
+
+  <h3>Bước 2 — Vẽ các vùng</h3>
+  <ul>
+    <li><b>Kéo chuột</b> trên màn để vẽ một vùng, hoặc dùng các nút <b>chia nhanh</b> (Cánh – Giữa – Cánh…).</li>
+    <li><b>Hình có sẵn:</b> tròn, trái tim, lục giác, ngôi sao, hoa sen, tam giác… Bấm là thêm.</li>
+    <li><b>Bút vẽ hình tự do:</b> bấm từng điểm quanh hình muốn vẽ, kéo để tạo đường cong; sửa lại bằng cách kéo điểm hoặc tay nắm.</li>
+    <li><b>Bo góc:</b> chọn vùng rồi kéo các thanh “Góc 1, 2, 3…”. Góc nào không bo được sẽ đánh số <b>màu đỏ</b>.</li>
+    <li>Vẽ sai thì <b>Hoàn tác</b> (<kbd>Ctrl</kbd>+<kbd>Z</kbd>); phóng to / thu nhỏ bằng lăn chuột.</li>
+  </ul>
+
+  <h3>Bước 3 — Chọn đầu ra (quan trọng khi chiếu LED)</h3>
+  <p>Ngay dưới dòng kích thước có mục <b>“ĐẦU RA (chiếu lên màn LED thật)”</b> với 2 lựa chọn:</p>
+  <ul>
+    <li><b>Lấp đầy màn hình xuất (kéo giãn)</b> — <b>mặc định</b>. Hình phủ kín toàn màn LED, không có viền đen. Dùng cho hầu hết bộ xử lý LED.</li>
+    <li><b>Đúng điểm ảnh LED (góc trên-trái)</b> — chỉ dùng khi bộ điều khiển LED lấy hình theo đúng từng điểm ảnh ở góc.</li>
+  </ul>
+  <div class="note tip"><b>Nếu chiếu lên LED mà không đầy màn (có viền đen):</b> mở Chỉnh Map, chọn <b>“Lấp đầy màn hình xuất”</b> là hết.</div>
+</section>
+
+<section id="vien-chaser" class="anchor">
+  <div class="eyebrow"><span class="num">6</span> Viền &amp; Chaser</div>
+  <h2>Viền Map và hiệu ứng chớp nháy</h2>
+
+  <h3>Viền Map LED <span class="tag">PLUGIN</span></h3>
+  <p>Vẽ viền quanh các màn LED. Ở khung <b>PLUGIN</b>, kéo <b>“Map LED”</b> vào danh sách LAYER, rồi kéo một kiểu viền thả vào thẻ Map LED đó.</p>
+  <ul>
+    <li>Các kiểu: <b>liền nét, neon chạy đuổi, khói, ma trận, kiếm ánh sáng</b>.</li>
+    <li>Chỉnh được <b>độ dày, màu, tốc độ chạy</b>, và <b>chia thành nhiều đoạn chạy đuổi</b> quanh màn.</li>
+  </ul>
+
+  <h3>Chaser – chớp nháy làm điểm nhấn <span class="tag">PLUGIN</span></h3>
+  <p>Chớp nháy các vùng LED theo nhịp bài hát. Kéo <b>“Thêm Chaser”</b> từ khung PLUGIN vào LAYER, rồi mở cài đặt.</p>
+  <ol class="steps">
+    <li><b>Gán phím:</b> mỗi Chaser một phím (mặc định phím 1, 2, 3…).</li>
+    <li><b>Nhấn GIỮ</b> phím đó là chớp, <b>thả</b> ra là tắt — hiệu ứng khác vẫn chạy bình thường bên dưới.</li>
+    <li><b>Thứ tự chớp:</b> đặt “bước” cho từng vùng (cùng bước thì chớp đồng loạt); hoặc dùng nút nhanh Lần lượt / Đồng loạt / Xen kẽ.</li>
+    <li><b>Màu:</b> chọn nhiều màu chạy luân phiên, hoặc tự đổi màu cầu vồng. Chỉnh được <b>tốc độ</b> và độ mạnh.</li>
+  </ol>
+  <div class="note"><b>Chỉnh màu R / G / B:</b> mỗi hiệu ứng và cả bài YouTube đều chỉnh được riêng kênh Đỏ / Xanh lá / Xanh dương trong mục <b>Màu sắc</b> — hữu ích khi màn LED bị ngả màu.</div>
+</section>
+
+<section id="banquyen" class="anchor">
+  <div class="eyebrow"><span class="num">7</span> Bản quyền</div>
+  <h2>Phần miễn phí và phần có tính phí</h2>
+
+  <div class="price">
+    <div class="h">Bảng phát âm thanh &amp; phát YouTube</div><div class="free">Miễn phí</div>
+    <div class="h divline">Màn hình LED (trộn hình, Map, viền, Chaser, chữ…)</div><div class="paid divline">Có tính phí</div>
+  </div>
+  <p>Khi chưa mua, phần màn hình LED vẫn dùng thử được đầy đủ, nhưng màn LED luôn hiện chữ <b>“BẢN DÙNG THỬ”</b> ở giữa mỗi màn. Kích hoạt là hết chữ đó.</p>
+
+  <h3>Cách kích hoạt bản quyền</h3>
+  <ol class="steps">
+    <li>Mở phần mềm, bấm nút <b>“Bản quyền”</b> (ở hàng nút phía trên).</li>
+    <li>Bấm <b>“Chép mã máy”</b> rồi gửi mã máy đó cho Lee Nguyễn Media (qua Zalo hoặc điện thoại).</li>
+    <li>Nhận lại một chuỗi <b>Giấy phép</b>, dán vào ô Giấy phép (ô này che như mật khẩu) rồi bấm <b>“Kích hoạt”</b>.</li>
+    <li>Báo <i>“Kích hoạt thành công”</i> là xong, chữ “BẢN DÙNG THỬ” biến mất.</li>
+  </ol>
+
+  <div class="note"><b>Điều cần biết:</b>
+    <ul>
+      <li>Mỗi giấy phép dùng cho <b>một máy</b> (theo mã máy). Dùng <b>vĩnh viễn</b> cho đời bản đã mua (ví dụ bản 1.3 dùng mãi mọi bản 1.3.x).</li>
+      <li>Kiểm tra bản quyền <b>không cần internet</b>.</li>
+      <li><b>Đổi máy:</b> ở máy cũ bấm “Gỡ kích hoạt máy này”, rồi liên hệ để được cấp lại cho máy mới.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="capnhat" class="anchor">
+  <div class="eyebrow"><span class="num">8</span> Cập nhật &amp; hỗ trợ</div>
+  <h2>Luôn dùng bản mới nhất</h2>
+  <ul>
+    <li><b>Windows:</b> phần mềm <b>tự kiểm tra</b> và hỏi cập nhật khi có bản mới. Bấm đồng ý là xong, các ô và cài đặt được giữ nguyên.</li>
+    <li><b>MacBook:</b> cập nhật bằng cách <b>tải lại</b> bản mới từ trang tải rồi cài đè.</li>
+    <li>Giấy phép của bạn vẫn dùng được sau khi cập nhật (trong cùng đời bản).</li>
+  </ul>
+  <div class="note warn"><b>Lưu ý nội dung:</b> phần mềm chỉ là công cụ phát âm thanh, hình ảnh. Bạn tự chịu trách nhiệm về quyền sử dụng nhạc, video (kể cả nội dung YouTube) khi phát nơi công cộng hoặc livestream.</div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big">LEE NGUYỄN MEDIA</div>
+    <p>LNK MEDIA — Sound · Light · Stage · LED</p>
+    <div class="contact">☎ <b>0981.019.019</b></div>
+    <p style="margin-top:1rem; font-size:.85rem">© 2026 Lee Nguyễn Media · Hướng dẫn cho phiên bản 1.3.3</p>
+  </div>
+</footer>
+</body>
+</html>
