@@ -83,5 +83,10 @@
   "n": 0,
   "os": "win",
   "ten": "v1.3.2/LeeNguyenMedia-win-Setup.exe"
+ },
+ "790334022": {
+  "n": 0,
+  "os": "mac",
+  "ten": "v1.3.2/LeeNguyenMedia-Mac.dmg"
  }
 }
