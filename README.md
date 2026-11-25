@@ -15,7 +15,7 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 <p align="center">
   <a href="../../releases/latest/download/LeeNguyenMedia-Windows.zip"><img src="https://img.shields.io/github/v/release/nguyenlenguyen228-afk/LeeNguyenMedia-Releases?label=T%E1%BA%A3i%20cho%20Windows&style=for-the-badge&color=2ea44f" alt="Tải cho Windows" height="40"></a>
   &nbsp;
-  <a href="../../releases/latest/download/LeeNguyenMedia-Mac.dmg"><img src="https://img.shields.io/badge/T%E1%BA%A3i%20cho%20Mac-v1.3.2-555555?style=for-the-badge" alt="Tải cho Mac" height="40"></a>
+  <a href="../../releases/latest/download/LeeNguyenMedia-Mac.dmg"><img src="https://img.shields.io/badge/T%E1%BA%A3i%20cho%20Mac-v1.3.3-555555?style=for-the-badge" alt="Tải cho Mac" height="40"></a>
 </p>
 <p align="center">
   <img src="https://img.shields.io/github/release-date/nguyenlenguyen228-afk/LeeNguyenMedia-Releases?label=Ng%C3%A0y%20ph%C3%A1t%20h%C3%A0nh&display_date=published_at" alt="Ngày phát hành">
