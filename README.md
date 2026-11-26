@@ -16,7 +16,7 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 <p align="center">
   <a href="../../releases/latest/download/LeeNguyenMedia-Windows.zip"><img src="https://img.shields.io/github/v/release/nguyenlenguyen228-afk/LeeNguyenMedia-Releases?label=T%E1%BA%A3i%20cho%20Windows&style=for-the-badge&color=2ea44f" alt="Tải cho Windows" height="40"></a>
   &nbsp;
-  <a href="../../releases/latest/download/LeeNguyenMedia-Mac.dmg"><img src="https://img.shields.io/badge/T%E1%BA%A3i%20cho%20Mac-v1.3.3-555555?style=for-the-badge" alt="Tải cho Mac" height="40"></a>
+  <a href="../../releases/latest/download/LeeNguyenMedia-Mac.dmg"><img src="https://img.shields.io/badge/T%E1%BA%A3i%20cho%20Mac-v1.3.3.1-555555?style=for-the-badge" alt="Tải cho Mac" height="40"></a>
 </p>
 <p align="center">
   <img src="https://img.shields.io/github/release-date/nguyenlenguyen228-afk/LeeNguyenMedia-Releases?label=Ng%C3%A0y%20ph%C3%A1t%20h%C3%A0nh&display_date=published_at" alt="Ngày phát hành">
@@ -60,7 +60,7 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 - **Chữ** nhiều kiểu (3D, neon, vàng kim…) và hiệu ứng động, nhiều khối chữ trong một khung
 - **Multi View** 10 lớp chồng lên nhau, chỉnh màu sắc (R / G / B) cho từng hiệu ứng
 
-### 🆕 Plugin Album ảnh (tính phí riêng – Windows, bản 1.3.3.1)
+### 🆕 Plugin Album ảnh (tính phí riêng – Windows & Mac, bản 1.3.3.1)
 
 Biến ảnh thành slide (video) nhanh chóng – thả cả thư mục ảnh vào là có ngay:
 - Ảnh chạy lần lượt **ngẫu nhiên**, mỗi ảnh **4,3 giây**, chuyển cảnh **0,3 giây** (chỉnh được)
