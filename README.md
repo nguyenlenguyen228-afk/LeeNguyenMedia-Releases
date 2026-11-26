@@ -9,6 +9,7 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 |---|---|
 | **Bảng phát âm thanh, YouTube** | **Miễn phí** |
 | **Màn hình LED** (trộn hình, Map LED, viền, Chaser…) | **Có tính phí** – chưa mua vẫn dùng thử được (màn LED hiện chữ *"BẢN DÙNG THỬ"*) |
+| **Plugin Album ảnh** – biến ảnh thành slide (video) nhanh chóng | **Tính phí riêng** – chưa mua vẫn dùng được (màn LED hiện chữ bản quyền *"BẢN DÙNG THỬ · LNK MEDIA"*) |
 
 ## Tải về
 
@@ -58,6 +59,15 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 - **Chaser**: nhấn giữ phím để chớp nháy các vùng làm điểm nhấn, nhiều màu, chỉnh tốc độ
 - **Chữ** nhiều kiểu (3D, neon, vàng kim…) và hiệu ứng động, nhiều khối chữ trong một khung
 - **Multi View** 10 lớp chồng lên nhau, chỉnh màu sắc (R / G / B) cho từng hiệu ứng
+
+### 🆕 Plugin Album ảnh (tính phí riêng – Windows, bản 1.3.3.1)
+
+Biến ảnh thành slide (video) nhanh chóng – thả cả thư mục ảnh vào là có ngay:
+- Ảnh chạy lần lượt **ngẫu nhiên**, mỗi ảnh **4,3 giây**, chuyển cảnh **0,3 giây** (chỉnh được)
+- Chuyển động và chuyển cảnh như ProShow / CapCut – **12 mẫu chạy**: Ken Burns, trượt đẩy, lật thẻ 3D, khối lập phương, khung ảnh…
+- **Luôn giữ trọn ảnh**, không cắt người trong ảnh; chỗ trống là chính ảnh phóng to làm nền mờ
+- Chạy toàn màn hình như các hiệu ứng khác, theo Map LED / từng màn
+- Cách dùng: màn LED → khung **PLUGIN** → kéo **Thêm Album ảnh** vào LAYER → bấm **bánh răng**. Ô **Mã máy** và ô nhập **Giấy phép** nằm ngay trong mục Album ảnh.
 
 **Mua bản quyền màn hình LED:** trong phần mềm bấm nút **Bản quyền** → **Chép mã máy** → gửi mã máy cho LNK MEDIA (☎ 0981.019.019).
 Mỗi giấy phép dùng cho một máy, **vĩnh viễn** cho đời bản đã mua (vd 1.3 dùng mãi mọi bản 1.3.x).
