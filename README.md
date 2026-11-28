@@ -9,14 +9,14 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 |---|---|
 | **Bảng phát âm thanh, YouTube** | **Miễn phí** |
 | **Màn hình LED** (trộn hình, Map LED, viền, Chaser…) | **Có tính phí** – chưa mua vẫn dùng thử được (màn LED hiện chữ *"BẢN DÙNG THỬ"*) |
-| **Plugin Album ảnh** – biến ảnh thành slide (video) nhanh chóng | **Tính phí riêng** – chưa mua vẫn dùng được (màn LED hiện chữ bản quyền *"BẢN DÙNG THỬ · LNK MEDIA"*) |
+| **Plugin Album ảnh** – biến ảnh thành slide (video) nhanh chóng | **Miễn phí** (hiện tại mọi plugin đều miễn phí) |
 
 ## Tải về
 
 <p align="center">
   <a href="../../releases/latest/download/LeeNguyenMedia-Windows.zip"><img src="https://img.shields.io/github/v/release/nguyenlenguyen228-afk/LeeNguyenMedia-Releases?label=T%E1%BA%A3i%20cho%20Windows&style=for-the-badge&color=2ea44f" alt="Tải cho Windows" height="40"></a>
   &nbsp;
-  <a href="../../releases/latest/download/LeeNguyenMedia-Mac.dmg"><img src="https://img.shields.io/badge/T%E1%BA%A3i%20cho%20Mac-v1.3.3.4-555555?style=for-the-badge" alt="Tải cho Mac" height="40"></a>
+  <a href="../../releases/latest/download/LeeNguyenMedia-Mac.dmg"><img src="https://img.shields.io/badge/T%E1%BA%A3i%20cho%20Mac-v1.3.3.5-555555?style=for-the-badge" alt="Tải cho Mac" height="40"></a>
 </p>
 <p align="center">
   <img src="https://img.shields.io/github/release-date/nguyenlenguyen228-afk/LeeNguyenMedia-Releases?label=Ng%C3%A0y%20ph%C3%A1t%20h%C3%A0nh&display_date=published_at" alt="Ngày phát hành">
@@ -60,14 +60,14 @@ Dùng cho quán, sự kiện, sân khấu, livestream. Giao diện tiếng Việ
 - **Chữ** nhiều kiểu (3D, neon, vàng kim…) và hiệu ứng động, nhiều khối chữ trong một khung
 - **Multi View** 10 lớp chồng lên nhau, chỉnh màu sắc (R / G / B) cho từng hiệu ứng
 
-### 🆕 Plugin Album ảnh (tính phí riêng – Windows & Mac, bản 1.3.3.1)
+### 🆕 Plugin Album ảnh (MIỄN PHÍ – Windows & Mac)
 
 Biến ảnh thành slide (video) nhanh chóng – thả cả thư mục ảnh vào là có ngay:
 - Ảnh chạy lần lượt **ngẫu nhiên**, mỗi ảnh **4,3 giây**, chuyển cảnh **0,3 giây** (chỉnh được)
 - Chuyển động và chuyển cảnh như ProShow / CapCut – **12 mẫu chạy**: Ken Burns, trượt đẩy, lật thẻ 3D, khối lập phương, khung ảnh…
 - **Luôn giữ trọn ảnh**, không cắt người trong ảnh; chỗ trống là chính ảnh phóng to làm nền mờ
 - Chạy toàn màn hình như các hiệu ứng khác, theo Map LED / từng màn
-- Cách dùng: màn LED → khung **PLUGIN** → kéo **Thêm Album ảnh** vào LAYER → bấm **bánh răng**. Ô **Mã máy** và ô nhập **Giấy phép** nằm ngay trong mục Album ảnh.
+- Cách dùng: màn LED → khung **PLUGIN** → kéo **Thêm Album ảnh** vào LAYER → bấm **bánh răng**: tải ảnh lên, chọn mẫu chạy.
 
 **Mua bản quyền màn hình LED:** trong phần mềm bấm nút **Bản quyền** → **Chép mã máy** → gửi mã máy cho LNK MEDIA (☎ 0981.019.019).
 Mỗi giấy phép dùng cho một máy, **vĩnh viễn** cho đời bản đã mua (vd 1.3 dùng mãi mọi bản 1.3.x).
